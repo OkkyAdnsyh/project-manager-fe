@@ -4,5 +4,48 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    row-gap: 1rem;
+}
+.email-input{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: .8rem;
+    background: rgba($color: #ffffff, $alpha: .25);
+    padding: 1rem .8rem;
+    border-radius: .8rem;
+    position: relative;
+    border: 1px solid transparent;
+
+    &.isActive{
+        background: var(--primary-color);
+        border: 1px solid var(--tertier-color);
+        transition: all .3s;
+
+        label{
+            background: var(--primary-color);
+            transform: translateY(-125%);
+            color: var(--tertier-color);
+        }
+    }
+
+    label{
+        font-family: var(--font);
+        font-size: 1.2rem;
+        color: #f3f3f3;
+        position: absolute;
+        left: 11%;
+        pointer-events: none;
+        transform: translateY(0);
+        transition: all .3s;
+    }
+    input{
+        color: var(--sec-color);
+        font-size: 1.6rem;
+    }
+    .reveal-btn{
+        margin-left: auto;
+        margin-right: .8rem;
+        cursor: pointer;
+    }
 }

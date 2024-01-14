@@ -26,8 +26,9 @@ const Login = () => {
             <h1>Login</h1>
             <p>Check progress of your project or start new project through dashboard</p>
           </article>
-          <FormControl>
-            <Input inputType='text' label='text' />
+          <FormControl className={styles['login-form']}>
+            <Input inputType='email' label='Email' />
+            <Input inputType='password' label='Password' />
           </FormControl>
         </section>
       </section>
