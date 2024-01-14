@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import FormControl from '@/components/elements/FormControl/FormControl';
 import Input from '@/components/elements/Input/Input';
 import styles from '@/components/modules/Forms/form.module.scss';
 import Image from 'next/image';
 import logo from '@/public/img/logo-green.png';
+import Button from '@/components/elements/Button/Button';
+import { IFormProps } from '@/globalType/interfaces/Interfaces';
+import { loginAuth } from '@/actions/auth/loginAuth';
+
 const Login = () => {
+
   return (
     <>
       <section className={styles.login}>
@@ -26,10 +31,21 @@ const Login = () => {
             <h1>Login</h1>
             <p>Check progress of your project or start new project through dashboard</p>
           </article>
-          <FormControl className={styles['login-form']}>
+          <FormControl action={loginAuth} className={styles['login-form']}>
             <Input inputType='email' label='Email' />
             <Input inputType='password' label='Password' />
+            <section className={styles['btn-group']}>
+              <Button btnType='submit'>
+                <p>login</p>
+              </Button>
+              <Button btnType='reset'>
+                <p>cancel</p>
+              </Button>
+            </section>
           </FormControl>
+          <p className={styles['footer']}>
+            Don't have an account ? <a href="#">Sign Up Here</a>
+          </p>
         </section>
       </section>
     </>

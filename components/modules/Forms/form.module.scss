@@ -79,6 +79,27 @@
             align-items: center;
             justify-content: flex-start;
             row-gap: 2.4rem;
+
+            .btn-group{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                column-gap: 2.4rem;
+            }
+        }
+        .footer{
+            margin-top: auto;
+            font-family: var(--font);
+            font-size: var(--sec-para);
+            font-weight: 400;
+            a{
+                font-family: var(--font);
+                font-size: var(--sec-para);
+                font-weight: 700;
+                color: var(--tertier-color);
+
+            }
         }
     }
 }
