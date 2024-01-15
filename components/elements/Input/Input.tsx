@@ -26,7 +26,7 @@ const Input : React.FC<IInputProps> = ({inputType, label, name, containerStyle, 
         <>
             <div className={`${styles['input-container']}`}>
                 {inputType === "email" &&
-                    <div className={`${styles['email-input']}  ${isFocus && styles.isActive}`}>
+                    <div className={`${styles['email-input']} ${isFocus && styles.isActive}`}>
                         <MD.MdOutlineAlternateEmail style={{color : '#F3F3F3', fontSize : 16}} />
                         <label htmlFor={inputType} id={`${inputType}-label`}>{label}</label>
                         <input 
