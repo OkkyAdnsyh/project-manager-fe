@@ -4,6 +4,7 @@
     --tertier-color : #4EED27;
     --sec-color : #F5F5F5;
     --primary-color : #1E1E1E;
+    --danger-color : #fa2828;
 
     --primary-para : 1.6rem;
     --sec-para : 1.2rem;
@@ -47,6 +48,9 @@ textarea{
     background: transparent;
     border: none;
     outline: none;
+}
+button, a{
+    cursor: pointer;
 }
 a{
     text-decoration: none;

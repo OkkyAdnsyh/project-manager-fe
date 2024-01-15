@@ -21,6 +21,16 @@ const Button = ({children, className, classGroup, btnType, onClick} : IBtnProps)
             className={`${styles["submit-btn"]} ${classGroup?.map((name) => {return styles[name]}).join(" ")}`} 
             onClick={onClick}>
                 <div className={styles["enable-background"]}></div>
+                <div className={styles.content}>
+                    {children}
+                </div>
+            </button>
+        }
+        {btnType === 'reset' &&
+            <button 
+            type="reset" 
+            className={`${styles["reset-btn"]} ${classGroup?.map((name) => {return styles[name]}).join(" ")}`} 
+            onClick={onClick}>
                 {children}
             </button>
         }
