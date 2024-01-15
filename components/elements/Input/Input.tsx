@@ -13,7 +13,7 @@ interface IInputProps extends HTMLProps<HTMLInputElement>{
     inputStyle? : string
 }
 
-const Input : React.FC<IInputProps> = ({inputType, label, name, containerStyle, inputStyle, ...rest}) => {
+const Input : React.FC<IInputProps> = ({inputType, label, name, onChange, containerStyle, inputStyle, ...rest}) => {
     
     const [isFocus, setFocus] = useState<boolean>(false);
     const [isReveal, setReveal] = useState<boolean>(false);
@@ -38,7 +38,10 @@ const Input : React.FC<IInputProps> = ({inputType, label, name, containerStyle, 
                             }}
                             onBlur={(e) => {
                                 {!e.target.value && isFocus ? setFocus(!isFocus) : ''}
-                            }} />
+                            }}
+                            onChange={onChange}
+                            {...rest}
+                            />
                     </div> 
                 }
                 {inputType === "password" &&
@@ -54,7 +57,10 @@ const Input : React.FC<IInputProps> = ({inputType, label, name, containerStyle, 
                             }}
                             onBlur={(e) => {
                                 {!e.target.value && isFocus ? setFocus(!isFocus) : ''}
-                            }} />
+                            }}
+                            onChange={onChange}
+                            {...rest}
+                            />
                         <Button className={styles['reveal-btn']} onClick={handlePassReveal} btnType="button">
                             {!isReveal ?
                                 <FA.FaEye style={{color : '#F3F3F3', fontSize : 16}} />
