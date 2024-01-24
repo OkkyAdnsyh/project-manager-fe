@@ -1,11 +1,20 @@
-.login-form{
+.user-form{
     width: 100%;
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    row-gap: 2.4rem;
+    row-gap: 1.6rem;
+
+    .alert{
+        font-family: var(--font);
+        font-size: 1.2rem;
+        font-weight: 500;
+        text-transform: capitalize;
+        color: var(--danger-color);
+        margin-left: auto;
+    }
 
     .btn-group{
         width: 100%;

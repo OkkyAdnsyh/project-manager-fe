@@ -37,7 +37,7 @@ const Login = () => {
 
   return (
     <>
-      <FormControl onSubmit={handleFormSubmit} className={styles['login-form']}>
+      <FormControl onSubmit={handleFormSubmit} className={styles['user-form']}>
         <Input inputType='email' label='Email' onChange={handleInputChange}/>
         <Input inputType='password' label='Password' onChange={handleInputChange}/>
         <section className={styles['btn-group']}>

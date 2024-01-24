@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: flex-start;
 }
-.email-input{
+.input{
     width: 100%;
     display: flex;
     align-items: center;
@@ -26,6 +26,13 @@
             background: var(--primary-color);
             transform: translateY(-125%);
             color: var(--tertier-color);
+        }
+    }
+    &.alert{
+        border-color: var(--danger-color);
+
+        label{
+            color : var(--danger-color);
         }
     }
 

@@ -8,6 +8,11 @@
     align-items: center;
     justify-content: center;
 
+    &.disabled{
+        opacity: .8;
+        pointer-events: none;
+    }
+
     &:hover{
         .enable-background{
             transform: scaleY(1);
