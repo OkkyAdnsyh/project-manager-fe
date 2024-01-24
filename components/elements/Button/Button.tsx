@@ -7,7 +7,7 @@ interface IBtnProps extends HTMLProps<HTMLButtonElement>{
     classGroup? : Array<string>
 }
 
-const Button = ({children, className, classGroup, btnType, onClick} : IBtnProps) => {
+const Button = ({children, className, classGroup, btnType, onClick, disabled} : IBtnProps) => {
   return (
     <>
         {btnType === 'button' && 
@@ -16,9 +16,10 @@ const Button = ({children, className, classGroup, btnType, onClick} : IBtnProps)
             </button>
         }
         {btnType === 'submit' &&
-            <button 
+            <button
+            disabled={disabled}
             type="submit" 
-            className={`${styles["submit-btn"]} ${classGroup?.map((name) => {return styles[name]}).join(" ")}`} 
+            className={`${styles["submit-btn"]} ${disabled && styles.disabled} ${classGroup?.map((name) => {return styles[name]}).join(" ")}`} 
             onClick={onClick}>
                 <div className={styles["enable-background"]}></div>
                 <div className={styles.content}>

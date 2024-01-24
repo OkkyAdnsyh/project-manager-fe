@@ -17,7 +17,7 @@ const Registration = () => {
   const [passCheckValid, setPassCheck] = useState<boolean>(true);
   const [isValid, setValid] = useState<boolean>(true);
 
-  const invalidRegex = /<script\b[^>]*>[\s\S]*?<\/script\b[^>]*>/g
+  const invalidRegex : RegExp = /<script\b[^>]*>[\s\S]*?<\/script\b[^>]*>/g
 
   const handleInputChange = (e : ChangeEvent<HTMLInputElement>) => {
     const {name , value} = e.target;
@@ -39,21 +39,27 @@ const Registration = () => {
 
   const handleFormSubmit = (e : FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if(Object.values(formData).includes(invalidRegex)){
-      setValid(false);
+    if(
+      formData.email.match(invalidRegex) || formData.username.match(invalidRegex) || formData.password.match(invalidRegex)
+    ){
+      setValid(false)
     } else {
-      setValid(true);
-    };
+      setValid(true)
+    }
   }
 
   return (
     <>
-      <FormControl className={`${styles['user-form']}`}>
+      <FormControl className={`${styles['user-form']}`} method='post' action={''} onSubmit={handleFormSubmit}>
         <Input inputType='email' name='email' label='Email' onChange={handleInputChange} />
         <Input inputType='text' name='username' label='Username' onChange={handleInputChange} />
         <Input inputType='password' name='password' label='Password' onChange={handleInputChange} />
         <Input inputType='password' name='passwordCheck' label='Validate Password' onChange={handlePassCheck} inputStyle={!passCheckValid ? 'alert' : ""}/>
-        {!isValid ? <p className={styles.alert}>* input not valid</p> : ''}
+        {!isValid ? 
+          <p className={styles.alert}>* input not valid</p> 
+          : 
+          ''
+        }
         <section className={styles['btn-group']}>
           <Button btnType='submit'>
             <p>sign up</p>
