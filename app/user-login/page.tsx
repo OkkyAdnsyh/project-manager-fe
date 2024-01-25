@@ -2,6 +2,7 @@ import Image from "next/image";
 import Login from "@/components/modules/Forms/Login";
 import styles from "@/public/style/page.module.scss";
 import logo from "@/public/img/logo-green.png"
+import Link from "next/link";
 
 export default function UserLogin(){
   return (
@@ -27,9 +28,9 @@ export default function UserLogin(){
               <p>Check progress of your project or start new project through dashboard</p>
             </article>
             <Login/>
-            <p className={styles['footer']}>
-              Don't have an account ? <a href="#">Sign Up Here</a>
-            </p>
+            <Link href={'/'} className={styles['footer']}>
+              Don't have an account ? <span>Sign Up Here</span>
+            </Link>
           </section>
         </section>
       </main>

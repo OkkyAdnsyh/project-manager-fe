@@ -18,7 +18,6 @@ const Input : React.FC<IInputProps> = ({inputType, label, name, onChange, contai
     
     const [isFocus, setFocus] = useState<boolean>(false);
     const [isReveal, setReveal] = useState<boolean>(false);
-    const [isValid, setValid] = useState<boolean>(true);
 
     const invalidRegex = /<script\b[^>]*>[\s\S]*?<\/script\b[^>]*>/g
 
@@ -30,7 +29,7 @@ const Input : React.FC<IInputProps> = ({inputType, label, name, onChange, contai
         <>
             <div className={`${styles['input-container']}`}>
                 {inputType === "email" &&
-                    <div className={`${styles.input} ${isFocus && styles.isActive} ${!isValid ? styles.alert : ''}`}>
+                    <div className={`${styles.input} ${isFocus && styles.isActive} ${styles[inputStyle as string]}`}>
                         <MD.MdOutlineAlternateEmail style={{color : '#F3F3F3', fontSize : 16}} />
                         <label htmlFor={name} id={`${name}-label`}>{label}</label>
                         <input 
@@ -42,7 +41,6 @@ const Input : React.FC<IInputProps> = ({inputType, label, name, onChange, contai
                             }}
                             onBlur={(e) => {
                                 {!e.target.value && isFocus ? setFocus(!isFocus) : ''};
-                                {e.target.value.match(invalidRegex) ? setValid(false) : setValid(true)};
                             }}
                             onChange={onChange}
                             {...rest}
@@ -73,10 +71,10 @@ const Input : React.FC<IInputProps> = ({inputType, label, name, onChange, contai
                                 <FA.FaEyeSlash style={{color : '#F3F3F3', fontSize : 16}} />
                             }
                         </Button>
-                    </div> 
+                    </div>
                 }
                 {inputType === "text" &&
-                    <div className={`${styles.input}  ${isFocus && styles.isActive} ${!isValid ? styles.alert : ''}`}>
+                    <div className={`${styles.input}  ${isFocus && styles.isActive} ${styles[inputStyle as string]}`}>
                         <IoTextSharp style={{color : '#F3F3F3', fontSize : 16}} />
                         <label htmlFor={name} id={`${name}-label`}>{label}</label>
                         <input 
@@ -88,7 +86,6 @@ const Input : React.FC<IInputProps> = ({inputType, label, name, onChange, contai
                             }}
                             onBlur={(e) => {
                                 {!e.target.value && isFocus ? setFocus(!isFocus) : ''};
-                                {e.target.value.match(invalidRegex) ? setValid(false) : setValid(true)};
                             }}
                             onChange={onChange}
                             {...rest}

@@ -14,14 +14,27 @@ const Registration = () => {
     password : '',
     username : ''
   });
-  const [passCheckValid, setPassCheck] = useState<boolean>(true);
-  const [isValid, setValid] = useState<boolean>(true);
+  const [passIsSimilar, setPassIsSimilar] = useState<boolean>(true);
+  const [inputIsValid, setInputIsValid] = useState({
+    email : true,
+    password : true,
+    username : true
+  });
 
   const invalidRegex : RegExp = /<script\b[^>]*>[\s\S]*?<\/script\b[^>]*>/g
+
+  const handleSanitize = (value : string, name : string) => {
+    if(value.match(invalidRegex)){
+      setInputIsValid((prevState) => ({...prevState, [name] : false}))
+    }else{
+      setInputIsValid((prevState) => ({...prevState, [name] : true}))
+    }
+  }
 
   const handleInputChange = (e : ChangeEvent<HTMLInputElement>) => {
     const {name , value} = e.target;
     setFormData((prevData) => ({...prevData, [name] : value}));
+    handleSanitize(value, name);
   }
 
   const handleStateReset = (e : MouseEvent<HTMLButtonElement>) => {
@@ -31,37 +44,38 @@ const Registration = () => {
   const handlePassCheck = (e : ChangeEvent<HTMLInputElement>) => {
     const {value} = e.target;
     if(value !== formData.password){
-      {passCheckValid ? setPassCheck(!passCheckValid) : ''}
+      {passIsSimilar ? setPassIsSimilar(!passIsSimilar) : ''}
     } else {
-      {!passCheckValid ? setPassCheck(!passCheckValid) : ''}
+      {!passIsSimilar ? setPassIsSimilar(!passIsSimilar) : ''}
     }
   };
 
   const handleFormSubmit = (e : FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if(
-      formData.email.match(invalidRegex) || formData.username.match(invalidRegex) || formData.password.match(invalidRegex)
-    ){
-      setValid(false)
-    } else {
-      setValid(true)
-    }
   }
 
   return (
     <>
       <FormControl className={`${styles['user-form']}`} method='post' action={''} onSubmit={handleFormSubmit}>
-        <Input inputType='email' name='email' label='Email' onChange={handleInputChange} />
-        <Input inputType='text' name='username' label='Username' onChange={handleInputChange} />
+        <Input inputType='email' name='email' label='Email' onChange={handleInputChange} inputStyle={inputIsValid.email === false ? "alert" : ''}/>
+        <Input inputType='text' name='username' label='Username' onChange={handleInputChange} inputStyle={inputIsValid.username === false ? "alert" : ''}/>
         <Input inputType='password' name='password' label='Password' onChange={handleInputChange} />
-        <Input inputType='password' name='passwordCheck' label='Validate Password' onChange={handlePassCheck} inputStyle={!passCheckValid ? 'alert' : ""}/>
-        {!isValid ? 
-          <p className={styles.alert}>* input not valid</p> 
-          : 
+        <Input inputType='password' name='passwordCheck' label='Validate Password' onChange={handlePassCheck} inputStyle={!passIsSimilar ? 'alert' : ""}/>
+        {inputIsValid.email === false || inputIsValid.username === false ?
+          <p className={styles.alert}>
+            *Your Input Is Invalid
+          </p>
+          :
           ''
         }
         <section className={styles['btn-group']}>
-          <Button btnType='submit'>
+          <Button 
+          btnType='submit'
+          disabled={
+            Object.values(inputIsValid).includes(false) || Object.values(formData).includes('') ?
+            true : false
+          }
+          >
             <p>sign up</p>
           </Button>
           <Button btnType='reset' onClick={handleStateReset}>

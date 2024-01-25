@@ -10,7 +10,14 @@
 
     &.disabled{
         opacity: .8;
-        pointer-events: none;
+        
+        &:hover{
+            cursor: not-allowed;
+            .enable-background{
+                transform: scaleY(0);
+            }
+        }
+        
     }
 
     &:hover{
