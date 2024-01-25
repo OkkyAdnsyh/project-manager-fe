@@ -24,15 +24,6 @@ const Login = () => {
 
   const handleFormSubmit : (e : FormEvent<HTMLFormElement>) => void = async (e) => {
     e.preventDefault();
-
-    const res = await fetch('http://localhost:3000/api/user-login', {
-      method : "POST",
-      body : JSON.stringify(formData)
-    })
-    .then(res => res.json())
-    .then(data => {return data});
-
-    console.log(res);
   }
 
   return (
@@ -41,7 +32,7 @@ const Login = () => {
         <Input inputType='email' label='Email' onChange={handleInputChange}/>
         <Input inputType='password' label='Password' onChange={handleInputChange}/>
         <section className={styles['btn-group']}>
-          <Button btnType='submit'>
+          <Button btnType='submit' disabled={Object.values(formData).includes('') ? true : false}>
             <p>login</p>
           </Button>
           <Button btnType='reset' onClick={handleStateReset}>
