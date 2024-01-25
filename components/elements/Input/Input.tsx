@@ -19,8 +19,6 @@ const Input : React.FC<IInputProps> = ({inputType, label, name, onChange, contai
     const [isFocus, setFocus] = useState<boolean>(false);
     const [isReveal, setReveal] = useState<boolean>(false);
 
-    const invalidRegex = /<script\b[^>]*>[\s\S]*?<\/script\b[^>]*>/g
-
     const handlePassReveal : (e : MouseEvent<HTMLButtonElement>) => void = (e) => {
         setReveal(!isReveal);
     };
