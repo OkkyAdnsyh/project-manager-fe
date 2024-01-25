@@ -3,6 +3,7 @@ import React from 'react';
 import Image from "next/image";
 import styles from "@/public/style/page.module.scss";
 import logo from "@/public/img/logo-green.png"
+import Link from 'next/link';
 
 const Home = () => {
   return (
@@ -28,9 +29,9 @@ const Home = () => {
               <p>Use the dashboard to easily start new project and manage it</p>
             </article>
             <Registration/>
-            <p className={styles['footer']}>
-             Already have an account ? <a href="#">Login Now</a>
-            </p>
+            <Link href={'/user-login'} className={styles['footer']}>
+             Already have an account ? <span>Login Now</span>
+            </Link>
           </section>
         </section>
       </main>
