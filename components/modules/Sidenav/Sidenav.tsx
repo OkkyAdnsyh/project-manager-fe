@@ -21,28 +21,28 @@ const Sidenav = () => {
           <Image src={logo} alt='logo' width={48} height={48} />
         </Link>
         <ul className={styles['nav-item__wrapper']}>
-          <li className={`${styles['nav-item__container']} ${currentPath === "/dashboard/client" ? styles['isActive'] : ''}`}>
-            <Nav href={'/'} context='Overview' className={currentPath === "/dashboard/client" ? 'isActive' : ''}>
+          <li className={`${styles['nav-item__container']} ${currentPath === "/dashboard" ? styles['isActive'] : ''}`}>
+            <Nav href={'/'} context='Overview' className={currentPath === "/dashboard" ? 'isActive' : ''}>
               <FaHome style={{fontSize : 24}} />
             </Nav>
           </li>
-          <li className={`${styles['nav-item__container']} ${currentPath === "/dashboard/client/project" ? styles['isActive'] : ''}`}>
-            <Nav href={'/project'} context='Projects' className={currentPath === "/dashboard/client/project" ? 'isActive' : ''}>
+          <li className={`${styles['nav-item__container']} ${currentPath === "/dashboard/project" ? styles['isActive'] : ''}`}>
+            <Nav href={'/project'} context='Projects' className={currentPath === "/dashboard/project" ? 'isActive' : ''}>
               <FaProjectDiagram style={{fontSize : 24}} />
             </Nav>
           </li>
-          <li className={`${styles['nav-item__container']} ${currentPath === "/dashboard/client/timeline" ? styles['isActive'] : ''}`}>
-            <Nav href={'/timeline'} context='Timeline' className={currentPath === "/dashboard/client/timeline" ? 'isActive' : ''}>
+          <li className={`${styles['nav-item__container']} ${currentPath === "/dashboard/timeline" ? styles['isActive'] : ''}`}>
+            <Nav href={'/timeline'} context='Timeline' className={currentPath === "/dashboard/timeline" ? 'isActive' : ''}>
               <FaTimeline style={{fontSize : 24}} />
             </Nav>
           </li>
-          <li className={`${styles['nav-item__container']} ${currentPath === "/dashboard/client/quotation" ? styles['isActive'] : ''}`}>
-            <Nav href={'/quotation'} context='Quotation' className={currentPath === "/dashboard/client/quotation" ? 'isActive' : ''}>
+          <li className={`${styles['nav-item__container']} ${currentPath === "/dashboard/quotation" ? styles['isActive'] : ''}`}>
+            <Nav href={'/quotation'} context='Quotation' className={currentPath === "/dashboard/quotation" ? 'isActive' : ''}>
               <MdNote style={{fontSize : 24}} />
             </Nav>
           </li>
-          <li className={`${styles['nav-item__container']} ${currentPath === "/dashboard/client/invoice" ? styles['isActive'] : ''}`} >
-            <Nav href={'/invoice'} context='Invoice' className={currentPath === "/dashboard/client/invoice" ? 'isActive' : ''}>
+          <li className={`${styles['nav-item__container']} ${currentPath === "/dashboard/invoice" ? styles['isActive'] : ''}`} >
+            <Nav href={'/invoice'} context='Invoice' className={currentPath === "/dashboard/invoice" ? 'isActive' : ''}>
               <FaFileInvoiceDollar style={{fontSize : 24}} />
             </Nav>
           </li>
