@@ -10,13 +10,11 @@ interface INav extends LinkProps{
   context? : string
 }
 const Nav = ({children, className, context, href, ...rest} : INav) => {
-  const path = usePathname();
-  const currentPath = path.split('/');
 
   return (
     <>
       <nav>
-        <Link className={`${styles['nav-item']} ${styles[className as string]}`} href={`/dashboard/${currentPath[2]}${href}`} {...rest}>
+        <Link className={`${styles['nav-item']} ${styles[className as string]}`} href={`/dashboard/${href}`} {...rest}>
           {children}
           <p className={styles.context}>
             {context}
