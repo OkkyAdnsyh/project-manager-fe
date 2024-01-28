@@ -35,7 +35,7 @@ const Login = () => {
     })
     .then(res => res.json());
 
-    router.push(`/dashboard/${res.message}`);
+    router.push(`/dashboard}`);
     
     console.log(res.message);
   }
