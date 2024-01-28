@@ -1,0 +1,24 @@
+.nav-item{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--sec-color);
+
+    &.isActive{
+        color: var(--primary-color);
+
+        .context{
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+    }
+
+    .context{
+        font-family: var(--font);
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: var(--sec-color);
+        margin-left: 2.4rem;
+    }
+}

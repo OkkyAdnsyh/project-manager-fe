@@ -6,12 +6,14 @@ import Input from '@/components/elements/Input/Input';
 import styles from '@/components/modules/Forms/form.module.scss';
 import Button from '@/components/elements/Button/Button';
 import { ILogin } from '@/globalType/interfaces/Interfaces';
+import { useRouter } from 'next/navigation';
 
 const Login = () => {
   const [formData, setFormData] = useState<ILogin>({
     email : "",
     password : ""
   })
+  const router = useRouter();
 
   const handleInputChange = (e : ChangeEvent<HTMLInputElement>) => {
     const {name , value} = e.target;
@@ -24,6 +26,18 @@ const Login = () => {
 
   const handleFormSubmit : (e : FormEvent<HTMLFormElement>) => void = async (e) => {
     e.preventDefault();
+    const res = await fetch('http://localhost:3000/api/user-login', {
+      method : 'post',
+      body : JSON.stringify({
+        email : formData.email,
+        password : formData.password
+      })
+    })
+    .then(res => res.json());
+
+    router.push(`/dashboard/${res.message}`);
+    
+    console.log(res.message);
   }
 
   return (
@@ -32,7 +46,7 @@ const Login = () => {
         <Input inputType='email' label='Email' onChange={handleInputChange}/>
         <Input inputType='password' label='Password' onChange={handleInputChange}/>
         <section className={styles['btn-group']}>
-          <Button btnType='submit' disabled={Object.values(formData).includes('') ? true : false}>
+          <Button btnType='submit'>
             <p>login</p>
           </Button>
           <Button btnType='reset' onClick={handleStateReset}>

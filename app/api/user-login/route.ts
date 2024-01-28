@@ -1,22 +1,12 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 
 export async function POST(request : Request){
     const body = await request.json();
+    const response = NextResponse.next();
 
-    const res = await fetch('http://localhost:5000/v1/api/user-login', {
-        method : "POST",
-        headers : {
-            "Content-Type" : "application/json"
-        },
-        body : JSON.stringify(body)
-    })
-    .then(
-        (res) => res.json()
-    )
+    const cookiesStore = cookies();
+    cookiesStore.set('role', 'client');
 
-    if(!res.ok){
-        return
-    }
-
-    return NextResponse.json({body}, {status : 200})
+    return NextResponse.json({message : 'client'}, {status : 200});
 }
