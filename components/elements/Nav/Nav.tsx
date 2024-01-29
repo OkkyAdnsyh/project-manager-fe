@@ -1,8 +1,7 @@
-'use client';
+
 import React from 'react';
 import styles from '@/components/elements/Nav/nav.module.scss';
 import Link, { LinkProps } from 'next/link';
-import { usePathname } from 'next/navigation';
 
 interface INav extends LinkProps{
   children? : React.ReactNode,

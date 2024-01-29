@@ -4,14 +4,11 @@ import Sidenav from '@/components/modules/Sidenav/Sidenav';
 import { checkUserRole } from '@/lib/auth/Auth';
 
 interface ILayoutProps {
-  children? : React.ReactNode,
   admin : React.ReactNode,
   client : React.ReactNode
 }
 
-
-
-const layout = ({children, admin, client} : ILayoutProps) => {
+const layout = ({admin, client} : ILayoutProps) => {
 
   const userRole = checkUserRole();
   console.log(userRole)
