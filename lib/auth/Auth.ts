@@ -4,5 +4,5 @@ export const checkUserRole = () => {
     const cookiesStore = cookies();
     const userRole = cookiesStore.get('role');
 
-    return userRole?.value
+    return {role : userRole?.value, username : "Caitlyn"}
 }
