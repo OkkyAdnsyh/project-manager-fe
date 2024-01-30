@@ -1,0 +1,10 @@
+.container{
+    width: 90%;
+    margin-inline: auto;
+    border-bottom: solid 2px rgba($color: #ffffff, $alpha: .4);
+    display: flex;
+    align-items: center;
+    height: auto;
+    padding: 2.4rem 1.6rem;
+    justify-content: space-between;
+}

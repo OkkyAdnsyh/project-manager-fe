@@ -1,11 +1,10 @@
-import Registration from '@/components/modules/Forms/Registration';
-import React from 'react';
 import Image from "next/image";
+import Login from "@/components/modules/Forms/Login";
 import styles from "@/public/style/page.module.scss";
 import logo from "@/public/img/logo-green.png"
-import Link from 'next/link';
+import Link from "next/link";
 
-const Home = () => {
+export default function UserLogin(){
   return (
     <>
       <main className={styles.home}>
@@ -21,16 +20,16 @@ const Home = () => {
             </defs>
           </svg>
             <Image className={styles.logo} src={logo} alt='logo' width={148} height={148}/>
-            <h1>START YOUR PROJECT AND EASILY MANAGE IT</h1>
+            <h1>CHECK WHAT'S GOING ON WITH YOUR PROJECT</h1>
           </article>
           <section className={styles['login-input-group']}>
             <article className={styles['title-group']}>
-              <h1>Sign Up</h1>
-              <p>Use the dashboard to easily start new project and manage it</p>
+              <h1>Login</h1>
+              <p>Check progress of your project or start new project through dashboard</p>
             </article>
-            <Registration/>
-            <Link href={'/user-login'} className={styles['footer']}>
-             Already have an account ? <span>Login Now</span>
+            <Login/>
+            <Link href={'/user-register'} className={styles['footer']}>
+              Don't have an account ? <span>Sign Up Here</span>
             </Link>
           </section>
         </section>
@@ -38,5 +37,3 @@ const Home = () => {
     </>
   )
 }
-
-export default Home
