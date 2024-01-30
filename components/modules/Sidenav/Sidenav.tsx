@@ -21,8 +21,8 @@ const Sidenav = () => {
           <Image src={logo} alt='logo' width={48} height={48} />
         </Link>
         <ul className={styles['nav-item__wrapper']}>
-          <li className={`${styles['nav-item__container']} ${currentPath === "/dashboard" ? styles['isActive'] : ''}`}>
-            <Nav href={'/'} context='Overview' className={currentPath === "/dashboard" ? 'isActive' : ''}>
+          <li className={`${styles['nav-item__container']} ${currentPath === "/dashboard/overview" ? styles['isActive'] : ''}`}>
+            <Nav href={'/overview'} context='Overview' className={currentPath === "/dashboard/overview" ? 'isActive' : ''}>
               <FaHome style={{fontSize : 24}} />
             </Nav>
           </li>

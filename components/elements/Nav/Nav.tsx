@@ -13,7 +13,7 @@ const Nav = ({children, className, context, href, ...rest} : INav) => {
   return (
     <>
       <nav>
-        <Link className={`${styles['nav-item']} ${styles[className as string]}`} href={`/dashboard/${href}`} {...rest}>
+        <Link className={`${styles['nav-item']} ${styles[className as string]}`} href={`/dashboard${href}`} {...rest}>
           {children}
           <p className={styles.context}>
             {context}
